@@ -85,42 +85,105 @@
 
 
 #가위바위보 함수
-#5번 경기 중 승리,패배 횟수 카운트
-import random
-win,loss,draw = 0,0,0;
-def game(player, isEnd):
-    global win,loss,draw
-    computer = random.choice(['가위', '바위', '보'])
+# #5번 경기 중 승리,패배 횟수 카운트
+# import random
+# win,loss,draw = 0,0,0;
+# def game(player, isEnd):
+#     global win,loss,draw
+#     computer = random.choice(['가위', '바위', '보'])
 
-    print('컴퓨터: ',computer,'VS', '나: ', player)
-    if(player == computer):
-        print('비김')
-        draw +=1
-    elif (player == '가위' and computer == '보') or \
-         (player == '바위' and computer == '가위') or \
-         (player == '보' and computer == '바위'):
-        print('이겼습니다!\n')
-        win += 1
-    else:
-        print('졌습니다!\n')
-        loss += 1
+#     print('컴퓨터: ',computer,'VS', '나: ', player)
+#     if(player == computer):
+#         print('비김')
+#         draw +=1
+#     elif (player == '가위' and computer == '보') or \
+#          (player == '바위' and computer == '가위') or \
+#          (player == '보' and computer == '바위'):
+#         print('이겼습니다!\n')
+#         win += 1
+#     else:
+#         print('졌습니다!\n')
+#         loss += 1
 
-    if(isEnd):
-        print('결과는??? 승:',win,'패:',loss,'비김:',draw)
+#     if(isEnd):
+#         print('결과는??? 승:',win,'패:',loss,'비김:',draw)
 
-i = 1
-while i <= 5:
-    me = input('가위바위보!!!: ')
+# i = 1
+# while i <= 5:
+#     me = input('가위바위보!!!: ')
 
-    if me not in ['가위', '바위', '보']:
-        print('잘못 입력하셨습니다. 가위, 바위, 보 중에서 입력해주세요.\n')
-        continue
+#     if me not in ['가위', '바위', '보']:
+#         print('잘못 입력하셨습니다. 가위, 바위, 보 중에서 입력해주세요.\n')
+#         continue
         
-    if(i == 5):
-        game(me,True)
-    else:
-        game(me,False)
+#     if(i == 5):
+#         game(me,True)
+#     else:
+#         game(me,False)
 
-    i += 1 
+#     i += 1 
     
+#가위바위보 함수
+#5번 경기 중 승리,패배 횟수 카운트
+# import random
+# win,loss,draw = 0,0,0
+# tools = ['가위', '바위','보']
+
+# def game(player):
+#     global win,loss,draw
+#     computer = random.choice(tools)
     
+#     print('컴퓨터: ',computer,'VS', '나: ', player)
+#     if(player == computer):
+#         print('비김')
+#         draw +=1
+#     elif (player == '가위' and computer == '보') or \
+#          (player == '바위' and computer == '가위') or \
+#          (player == '보' and computer == '바위'):
+#         print('이겼습니다!\n')
+#         win += 1
+#     else:
+#         print('졌습니다!\n')
+#         loss += 1
+
+# def game_result():
+#     global win,loss,draw
+#     print('결과는??? 승:',win,'패:',loss,'비김:',draw)
+
+# def play_game(): 
+#     i = 1
+#     while i <= 5:
+#         me = input('가위바위보!!!: ')
+
+#         if me not in ['가위', '바위', '보']:
+#             print('잘못 입력하셨습니다. 가위, 바위, 보 중에서 입력해주세요.\n')
+#             continue
+
+#         if(i == 5):
+#             game(me)
+#             game_result()
+#         else:
+#             game(me)
+
+#         i += 1
+# play_game()
+import random
+
+list = range(1,46)
+result = []
+
+def choice():
+    return random.choice(list)
+
+def check_num(num):
+    return num not in result
+
+def play(): 
+    num = choice()
+
+    while len(result) != 6:
+        if(check_num(num)):
+            result.append(choice())
+
+play()
+print(result)
